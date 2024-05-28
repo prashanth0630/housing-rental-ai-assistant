@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: rag-chat-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/rag_chat?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+mybatis:
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: com.example.domain
+
+flyway:
+  enabled: true
+  baseline-on-migrate: true
+  locations: classpath:db/migration
+
+app:
+  security:
+    jwt-secret: ${APP_SECURITY_JWT_SECRET:local-development-jwt-secret-minimum-32-chars}
+    jwt-expiration-minutes: ${APP_SECURITY_JWT_EXPIRATION_MINUTES:120}
+  openai:
+    api-key: ${OPENAI_API_KEY:}
+    model: gpt-4o-mini
+  rag:
+    embedding-model: text-embedding-3-small
+    index-dir: ${APP_RAG_INDEX_DIR:./data/vector-index}
+    upload-dir: ${APP_RAG_UPLOAD_DIR:./data/uploads}
+
