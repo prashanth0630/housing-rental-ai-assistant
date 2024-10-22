@@ -1,0 +1,31 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.npm-cache/
+
+# Backend
+backend/target/
+backend/logs/
+backend/data/
+
+# Runtime data
+data/
+logs/
+uploads/
+vector-index/
+
+# Java / Maven
+*.class
+*.jar
+
