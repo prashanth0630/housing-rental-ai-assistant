@@ -117,10 +117,3 @@ curl http://localhost:8080/api/health
 - UI screenshots are extracted from `docs/3-Input_Output_Example.pdf`.
 
 
-## Limitations
-
-- This is a team course project and should not be presented as a single-person production system.
-- The current vector store is in memory; a production version should use persistent vector storage.
-- Full operation requires backend services, MySQL, and OpenAI API access. GitHub Pages can host only the static frontend.
-- A production deployment should add stricter document-level permissions, monitoring, backup policy, and secret management.
-- Do not commit `.env` or any API keys.
